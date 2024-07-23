@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="logout-message pl-5">
+        <h4>Are you sure you want to logout</h4>
+        <span class="pl-4">
+            <a href="{{ url_for('logout') }}" class="active mr-2"><button class="btn btn-outline-secondary px-4">Yes</button></a>
+            
+            <a href="{{ url_for('home') }}" class="active mr-3"><button class="btn btn-outline-primary px-4">No</button></a>
+        </span>
+    </div>
+{% endblock content %}
