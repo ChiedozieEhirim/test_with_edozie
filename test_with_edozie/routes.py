@@ -22,8 +22,8 @@ def feature():
 
 @app.route('/register', methods=['GET', 'POST'])      
 def register():
-    # if current_user.authenticated:
-    #     return redirect(url_for('home'))
+    if current_user.authenticated:
+        return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
         with app.app_context():
@@ -36,38 +36,38 @@ def register():
         return redirect(url_for('home'))
     return render_template('register.html', form=form)
 
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if current_user.authenticated:
-#         return redirect(url_for('home'))
-#     form = LoginForm()
-#     if form.validate_on_submit():
-#         student = Students.query.filter_by(email=form.email.data).first()
-#         if student and bcrypt.check_password_hash(student.password, form.password.data):
-#             login_user(student)
-#             redirect(url_for('profile'))
-#             next_page = request.args.get('next')
-#             return redirect(next_page) if next_page else redirect(url_for('profile'))
-#         else:
-#             flash('Login Unsuccessfull. Check your email and password and try again')
-#     return render_template('login.html', form=form)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.authenticated:
+        return redirect(url_for('home'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        student = Students.query.filter_by(email=form.email.data).first()
+        if student and bcrypt.check_password_hash(student.password, form.password.data):
+            login_user(student)
+            redirect(url_for('home'))
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessfull. Check your email and password and try again')
+    return render_template('login.html', form=form)
 
-# @login_required
-# @app.route('/confirm_logout')
-# def confirm_logout():
-#     return render_template('confirm_logout.html')
+@login_required
+@app.route('/confirm_logout')
+def confirm_logout():
+    return render_template('confirm_logout.html')
 
-# @app.route('/logout')
-# def logout():
-#     logout_user()
-#     return redirect(url_for('home'))
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
 
-# @login_required
-# @app.route('/profile')
-# def profile():
-#     return render_template('profile.html')
+@login_required
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
 
-# @login_required
-# @app.route('/subjects')
-# def subjects():
-#     return render_template('subjects.html')
+@login_required
+@app.route('/subjects')
+def subjects():
+    return render_template('subjects.html')
