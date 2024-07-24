@@ -45,9 +45,9 @@ def login():
         student = Students.query.filter_by(email=form.email.data).first()
         if student and bcrypt.check_password_hash(student.password, form.password.data):
             login_user(student)
-            redirect(url_for('home'))
+            redirect(url_for('profile'))
             next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
+            return redirect(next_page) if next_page else redirect(url_for('profile'))
         else:
             flash('Login Unsuccessfull. Check your email and password and try again')
     return render_template('login.html', form=form)
