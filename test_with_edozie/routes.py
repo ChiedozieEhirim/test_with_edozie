@@ -43,7 +43,8 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         student = Students.query.filter_by(email=form.email.data).first()
-        if student and bcrypt.check_password_hash(student.password, form.password.data):
+        input_password = form.password.data
+        if student and bcrypt.check_password_hash(student.password, input_password.encode('utf-8')):
             login_user(student)
             redirect(url_for('profile'))
             next_page = request.args.get('next')
