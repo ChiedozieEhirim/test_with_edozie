@@ -14,6 +14,7 @@ def home():
 
 @app.route('/about')
 def about():
+    users = Students.query.all()
     return render_template('about.html', title='About')
 
 @app.route('/feature')
@@ -29,7 +30,7 @@ def register():
         with app.app_context():
             db.create_all()
             student = Students(email=form.email.data, first_name=form.first_name.data, last_name=form.last_name.data,
-                               gender=form.gender.data, password= bcrypt.generate_password_hash(form.password.data))
+                               gender=form.gender.data, password= bcrypt.generate_password_hash(form.password.data).decode('utf-8'))
             db.session.add(student)
             db.session.commit()
         flash('Your account has been created successfully', 'success')
@@ -44,7 +45,7 @@ def login():
     if form.validate_on_submit():
         student = Students.query.filter_by(email=form.email.data).first()
         input_password = form.password.data
-        if student and bcrypt.check_password_hash(student.password, input_password.encode('utf-8')):
+        if student and bcrypt.check_password_hash(student.password, form.password.data):
             login_user(student)
             redirect(url_for('profile'))
             next_page = request.args.get('next')
