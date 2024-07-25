@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Dear {{ current_user.first_name }},</h3>
+    <p>Your score in your last mathematics test is {{ total_score }}/10</p>
+{% endblock content %}
