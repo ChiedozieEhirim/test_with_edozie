@@ -1,4 +1,23 @@
-{% extends ''base.html' %}
+{% extends 'base.html' %}
 {% block content %}
-    <h1>Our subjects</h1>
+    <h4>Choose a Subject</h4>
+    <span class="container">
+        <ul>
+            <li>
+                <div class="container-subject python">
+                    <a href="#">
+                        <h3>Take a basic python quiz</h3>
+                    </a>
+                </div>
+            </li>
+    
+            <li>
+                <div class="container-subject maths">
+                    <a href="{{ url_for('math_test') }}">
+                        <h3>Take a basic maths quiz</h3>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </span>
 {% endblock content %}

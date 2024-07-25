@@ -4,6 +4,6 @@
         <strong><h3>Welcome, {{ current_user.first_name }}</h3></strong>
     </div>
     <div class="container">
-        <a href="#">Check Results</a>
+        <a href="{{ url_for('check_results') }}">Check Results</a>
     </div>
 {% endblock content %}

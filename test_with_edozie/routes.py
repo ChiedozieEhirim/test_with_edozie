@@ -1,7 +1,7 @@
 from test_with_edozie import app, db, bcrypt
 from flask import render_template, flash, request, redirect, url_for
-from .forms import RegistrationForm, LoginForm
-from .models import Students
+from .forms import RegistrationForm, LoginForm, MathTestForm
+from .models import Students, MathTest, TestAnswers 
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -44,10 +44,9 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         student = Students.query.filter_by(email=form.email.data).first()
-        input_password = form.password.data
         if student and bcrypt.check_password_hash(student.password, form.password.data):
             login_user(student)
-            redirect(url_for('profile'))
+            return redirect(url_for('profile'))
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('profile'))
         else:
@@ -73,3 +72,60 @@ def profile():
 @app.route('/subjects')
 def subjects():
     return render_template('subjects.html')
+
+
+
+@login_required
+@app.route('/math_test', methods=['GET', 'POST'])
+def math_test():
+    form = MathTestForm()
+    if form.validate_on_submit():
+        with app.app_context():
+                db.create_all()
+                test_result = MathTest(question1=form.question1.data, question2=form.question2.data, question3=form.question3.data,
+                               question4=form.question4.data, question5=form.question5.data, question6=form.question6.data,
+                               question7=form.question7.data, question8=form.question8.data, question9=form.question9.data,
+                               question10=form.question10.data, student=current_user.id)
+        db.session.add(test_result)
+        db.session.commit()
+        flash('Your test have been successfully submitted', 'success')
+        return redirect(url_for('profile'))
+    return render_template('math_test.html', title='Math Test', form=form)
+
+
+
+@login_required
+@app.route('/check_results')
+def check_results():
+    return render_template('check_results.html')
+
+
+@login_required
+@app.route('/check_maths_results')
+def check_math_results():
+    with app.app_context():
+        student = MathTest.query.filter_by(student=current_user.id).all()[-1]
+        answers = TestAnswers.query.filter_by(subject='Mathematics').first()
+        if not student:
+            flash('Take a test to view your results')
+        student_answers = [
+            student.question1, student.question2, student.question3, student.question4, student.question5,
+            student.question6, student.question7, student.question8, student.question9, student.question10
+        ]
+        correct_answers = [
+            answers.question1, answers.question2, answers.question3, answers.question4, answers.question5,
+            answers.question6, answers.question7, answers.question8, answers.question9, answers.question10
+        ]
+
+        count = 0
+        mark = 0
+        while count < 10:
+            if student_answers[count] == correct_answers[count]:
+                mark += 1
+            else:
+                pass
+            count += 1
+        
+        total_score = mark
+        
+    return render_template('check_math_results.html', title='Math Results', total_score=total_score)
