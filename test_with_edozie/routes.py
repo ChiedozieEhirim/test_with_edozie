@@ -104,10 +104,11 @@ def check_results():
 @app.route('/check_maths_results')
 def check_math_results():
     with app.app_context():
-        student = MathTest.query.filter_by(student=current_user.id).all()[-1]
+        try:
+            student = MathTest.query.filter_by(student=current_user.id).all()[-1]
+        except:
+            return redirect(url_for('no_results_found'))
         answers = TestAnswers.query.filter_by(subject='Mathematics').first()
-        if not student:
-            flash('Take a test to view your results')
         student_answers = [
             student.question1, student.question2, student.question3, student.question4, student.question5,
             student.question6, student.question7, student.question8, student.question9, student.question10
@@ -129,3 +130,8 @@ def check_math_results():
         total_score = mark
         
     return render_template('check_math_results.html', title='Math Results', total_score=total_score)
+
+@login_required
+@app.route('/no_results_found')
+def no_results_found():
+    return render_template('no_results_found.html', title='No Resuts Found')
