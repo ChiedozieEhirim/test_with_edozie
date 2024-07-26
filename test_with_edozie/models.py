@@ -59,3 +59,34 @@ class TestAnswers(db.Model):
     question8 = db.Column(db.String(100), nullable=False)
     question9 = db.Column(db.String(100), nullable=False)
     question10 = db.Column(db.String(100), nullable=False)
+
+
+
+
+class PythonTest(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question1 = db.Column(db.String(100), nullable=False)
+    question2 = db.Column(db.String(100), nullable=False)
+    question3 = db.Column(db.String(100), nullable=False)
+    question4 = db.Column(db.String(100), nullable=False)
+    question5 = db.Column(db.String(100), nullable=False)
+    question6 = db.Column(db.String(100), nullable=False)
+    question7 = db.Column(db.String(100), nullable=False)
+    question8 = db.Column(db.String(100), nullable=False)
+    question9 = db.Column(db.String(100), nullable=False)
+    question10 = db.Column(db.String(100), nullable=False)
+    student = db.Column(db.Integer, db.ForeignKey('students.id'), nullable=False)
+
+class PythonTestAnswers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    subject = db.Column(db.String(100), nullable=False)
+    question1 = db.Column(db.String(100), nullable=False)
+    question2 = db.Column(db.String(100), nullable=False)
+    question3 = db.Column(db.String(100), nullable=False)
+    question4 = db.Column(db.String(100), nullable=False)
+    question5 = db.Column(db.String(100), nullable=False)
+    question6 = db.Column(db.String(100), nullable=False)
+    question7 = db.Column(db.String(100), nullable=False)
+    question8 = db.Column(db.String(100), nullable=False)
+    question9 = db.Column(db.String(100), nullable=False)
+    question10 = db.Column(db.String(100), nullable=False)
