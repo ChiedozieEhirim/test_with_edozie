@@ -6,7 +6,7 @@ from .models import Students, OneTimePassword, StudentMathResults, MathTestAnswe
         StudentCryptographyResults, CryptographyTestAnswers
 from flask_login import login_user, current_user, logout_user, login_required
 import itsdangerous
-from .utils import send_mail, email_sender, email_password, send_otp_to_user
+from .utils import send_mail, email_sender, email_password, async_send_otp_to_user
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -47,7 +47,7 @@ def register():
             db.session.add(student)
             db.session.commit()
             flash(f'An OTP has been sent to {form.email.data}. Use it to verify your account','info')
-            send_otp_to_user(email=form.email.data)
+            async_send_otp_to_user(email=form.email.data)
             return redirect('confirm_email')
     return render_template('register.html', form=form) 
 

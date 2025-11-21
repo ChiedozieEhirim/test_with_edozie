@@ -5,6 +5,7 @@ from itsdangerous import URLSafeTimedSerializer
 from test_with_edozie import app, db, email_password, email as email_sender
 import random
 from .models import OneTimePassword, Students
+import threading
 
 
 global secret_key
@@ -55,3 +56,8 @@ def send_otp_to_user(email):
         db.session.add(user_code)
         db.session.commit()
     send_mail(email_receiver=email, email_subject=Subject, email_body=email_body)
+
+
+def async_send_otp_to_user(email):
+    email_send = threading.Thread(target=send_otp_to_user, args=(email, ))
+    email_send.start()
