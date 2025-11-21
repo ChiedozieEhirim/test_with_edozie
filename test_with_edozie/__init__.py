@@ -12,8 +12,8 @@ app = Flask(__name__)
 load_dotenv()
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://test_with_edozie_5smy_user:alWRdUwfdV305bi7urQ9eWX7sklqB5lo@dpg-d2ftu98gjchc73af3cc0-a.oregon-postgres.render.com/test_with_edozie_5smy'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('EXTERNAL_DATABASE_URL')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 bcrypt = Bcrypt(app)
