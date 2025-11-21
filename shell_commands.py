@@ -39,7 +39,6 @@ def other_pushes_to_git(commit_message):
     subprocess.run('git push origin master', shell=True)
     print()
 
-first_push_to_git('"Initial Commit"', 'https://github.com/EhirimChiedozie/test_with_edozie.git'), 
-
+other_pushes_to_git('"Profile Display Change"')
 
 #run_migrations()

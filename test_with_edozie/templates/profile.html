@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="jumbotron">
-        <strong><h3>Welcome, {{ current_user.first_name }}</h3></strong>
+        <strong><h3>Welcome, {{ current_user.first_name }} {{ current_user.last_name }}</h3></strong>
     </div>
     <div class="container">
         <a href="{{ url_for('check_results') }}">Check Results</a>
