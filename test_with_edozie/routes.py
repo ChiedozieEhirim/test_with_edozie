@@ -18,10 +18,10 @@ def home():
 
 @app.route('/about')
 def about():
-    with app.app_context():
-        student = Students.query.filter_by(email='ehirimchiedozie@outlook.com').first()
-        db.session.delete(student)
-        db.session.commit()
+    #with app.app_context():
+        #student = Students.query.filter_by(email='ehirimchiedozie@outlook.com').first()
+        #db.session.delete(student)
+        #db.session.commit()
     return render_template('about.html', title='About')
 
 @app.route('/feature')
@@ -50,9 +50,8 @@ def register():
                                )
             db.session.add(student)
             db.session.commit()
-            flash(f'An OTP has been sent to {form.email.data}. Use it to verify your account','info')
-            async_send_otp_to_user(email=form.email.data)
-            return redirect('confirm_email')
+            flash(f'Your account has been created successfully. You can now login','success')
+            return redirect(url_for('login'))
     return render_template('register.html', form=form) 
 
 
@@ -102,7 +101,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         student = Students.query.filter_by(email=form.email.data).first()
-        if student and bcrypt.check_password_hash(student.password, form.password.data) and student.is_verified==True:
+        if student and bcrypt.check_password_hash(student.password, form.password.data):
             login_user(student)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('profile'))
