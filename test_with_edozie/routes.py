@@ -18,6 +18,10 @@ def home():
 
 @app.route('/about')
 def about():
+    with app.app_context():
+        student = Students.query.filter_by(email='ehirimchiedozie@outlook.com').first()
+        db.session.delete(student)
+        db.session.commit()
     return render_template('about.html', title='About')
 
 @app.route('/feature')

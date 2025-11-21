@@ -48,9 +48,9 @@ def send_mail(email_receiver, email_subject, email_body):
 def send_otp_to_user(email):
     Subject = 'One time password for email verification'.title()
     otp_code = generate_otp()
-    user = Students.query.filter_by(email=email).first()
     email_body = f'Hello, thanks for signing up. Please verify your email with \n OTP {otp_code}'
     with app.app_context():
+        user = Students.query.filter_by(email=email).first()
         db.create_all()
         user_code = OneTimePassword(user=user.id, code=otp_code)
         db.session.add(user_code)

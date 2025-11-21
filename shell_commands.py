@@ -39,6 +39,6 @@ def other_pushes_to_git(commit_message):
     subprocess.run('git push origin master', shell=True)
     print()
 
-other_pushes_to_git('"Threading"')
+other_pushes_to_git('"Threading2"')
 
 #run_migrations()
