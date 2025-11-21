@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Maths Test</legend>
+                    <div class="form-check">
+                        <strong><p>1. Two of the angles in a triangle are 80&deg; are 70&deg;. Find the value of the third angle.</p></strong>
+                        {% if form.question1.errors %}
+                            {{ form.question1(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question1.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question1(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>2. Convert 10101 <sub>two</sub> to base ten</p></strong>
+                        {% if form.question2.errors %}
+                            {{ form.question2(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question2.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question2(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>3. Which of the following is the same as 2sinAcosA</p></strong>
+                        {% if form.question3.errors %}
+                            {{ form.question3(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question3.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question3(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>4. Factorize x <sup>2</sup> -7x + 10</p></strong>
+                        {% if form.question4.errors %}
+                            {{ form.question4(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question4.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question4(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>5. Which of these is a leap year?</p></strong>
+                        {% if form.question5.errors %}
+                            {{ form.question5(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question5.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question5(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>6. Convert XLV to Hindu-Arabic</p></strong>
+                        {% if form.question6.errors %}
+                            {{ form.question6(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question6.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question6(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>7. The longest part in a right-angled triangle is </p></strong>
+                        {% if form.question7.errors %}
+                            {{ form.question7(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question7.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question7(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>8. The result obtained when a complex number is multiplied by its conjugate is its</p></strong>
+                        {% if form.question8.errors %}
+                            {{ form.question8(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question8.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question8(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <strong>
+                        <p>Use the information below to answer questions 9 and 10</p>
+                    </strong>
+                    <p>A complex number is defined by z = 4+j3</p>
+                    <div class="form-check">
+                        <strong><p>9. The modulus of the complex number is</p></strong>
+                        {% if form.question9.errors %}
+                            {{ form.question9(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question9.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question9(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>10. What is the argument of the complex number</p></strong>
+                        {% if form.question10.errors %}
+                            {{ form.question10(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question10.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question10(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+    </div>
+{% endblock content %}

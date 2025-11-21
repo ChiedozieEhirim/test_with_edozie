@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Python Test</legend>
+                    <div class="form-check">
+                        <strong><p>1. A character enclosed within quotation marks is a ________________</p></strong>
+                        {% if form.question1.errors %}
+                            {{ form.question1(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question1.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question1(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>2. Which of these is the correct way of declaring a variable in python?</p></strong>
+                        {% if form.question2.errors %}
+                            {{ form.question2(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question2.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question2(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>3. The process of combining two strings into one is</p></strong>
+                        {% if form.question3.errors %}
+                            {{ form.question3(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question3.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question3(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>4. a = 'paris'</p>
+                                <p>Which of the following is the correct syntax for printing the word 'paris'?</p>
+                            </strong>
+                        {% if form.question4.errors %}
+                            {{ form.question4(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question4.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question4(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>5. In python variable names and values are case-sensitive</p></strong>
+                        {% if form.question5.errors %}
+                            {{ form.question5(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question5.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question5(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>6. Which of the following is the correct symbol used for a single line comment</p></strong>
+                        {% if form.question6.errors %}
+                            {{ form.question6(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question6.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question6(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>7. ___________ is used for a multi-line comment </p></strong>
+                        {% if form.question7.errors %}
+                            {{ form.question7(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question7.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question7(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>8. Which of the following is a legal variable name in python?</p></strong>
+                        {% if form.question8.errors %}
+                            {{ form.question8(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question8.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question8(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    
+                    <div class="form-check">
+                        <strong><p>9. Which if the folowing symbols is used for the snake case?</p></strong>
+                        {% if form.question9.errors %}
+                            {{ form.question9(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question9.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question9(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>10. In the camel case</p></strong>
+                        {% if form.question10.errors %}
+                            {{ form.question10(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question10.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question10(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+    </div>
+{% endblock content %}

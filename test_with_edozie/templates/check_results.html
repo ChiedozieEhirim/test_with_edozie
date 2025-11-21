@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <strong>Select Subject</strong>
+    <ol type="i">
+        <li><a href="{{ url_for('check_math_results') }}">Maths</a></li>
+        <li><a href="{{ url_for('check_python_results') }}">Python</a></li>
+        <li><a href="{{ url_for('check_basic_cryptography_results')}}">Basic Cryptography</a></li>
+    </ol>
+{% endblock content %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="ml-4">
+        <h3>Dear {{ current_user.first_name }},</h3>
+        <p>Your score in your last basic cryptography test is {{ total_score }}/10</p>
+        <p>You had a score of {{ (total_score/10) * 100 }}%</p>
+    </div>
+{% endblock content %}

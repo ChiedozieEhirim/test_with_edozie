@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Basic Cryptography Test</legend>
+                    <div class="form-check">
+                        <strong><p>1. The science of using secret codes is called</p></strong>
+                        {% if form.question1.errors %}
+                            {{ form.question1(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question1.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question1(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>2. Someone who can hack secret codes and read other people’s encrypted messages is called a _________________</p></strong>
+                        {% if form.question2.errors %}
+                            {{ form.question2(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question2.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question2(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>3. Which of the following cryptographical methods shifts all the elements of its plaintext by a particular number?</p></strong>
+                        {% if form.question3.errors %}
+                            {{ form.question3(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question3.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question3(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>4. The process of trying out every possible key until the encryption key is gotten is </p></strong>
+                        {% if form.question4.errors %}
+                            {{ form.question4(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question4.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question4(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>5. Using the transposition algorithm, decrypt "Tbsvzhr-eyeojr--wu-dqnmtou-phgifeescod--kx-l--eoa-" using a key of 10</p></strong>
+                        {% if form.question5.errors %}
+                            {{ form.question5(class="form-control-lg form-check is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question5.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question5(class="form-control-lg form-check") }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>6. Which of these number cannot be a key using a symbol set of 26 in the multiplicative cipher?</p></strong>
+                        {% if form.question6.errors %}
+                            {{ form.question6(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question6.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question6(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>7. The frequency analysis can be used to break the following ciphers except</p></strong>
+                        {% if form.question7.errors %}
+                            {{ form.question7(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question7.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question7(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>8. Combining a multiplicative cipher with a Caesar's cipher gives</p></strong>
+                        {% if form.question8.errors %}
+                            {{ form.question8(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question8.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question8(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>9. Encrypt "Obi is a boy" using the Vigenere cipher with a key of "works" using the letters of the English alphabets as the symbol set</p></strong>
+                        {% if form.question9.errors %}
+                            {{ form.question9(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question9.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question9(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                    <div class="form-check">
+                        <strong><p>10. The length of a plaintext is 50. Which of these numbers is the most secured number be used as a key 
+                            using the transposition cipher?
+                        </p></strong>
+                        {% if form.question10.errors %}
+                            {{ form.question10(class='form-control-lg form-check is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.question10.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.question10(class='form-control-lg form-check') }}
+                        {% endif %}
+                    </div>
+                    <br> <br> <br>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+    </div>
+{% endblock content %}

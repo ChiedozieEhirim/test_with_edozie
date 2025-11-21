@@ -1,0 +1,17 @@
+<input id="message" />
+<button onclick="send()">Send</button>
+<p id="reply"></p>
+
+<script>
+function send() {
+  fetch('/chat', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({message: document.getElementById('message').value})
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('reply').innerText = data.reply;
+  });
+}
+</script>
